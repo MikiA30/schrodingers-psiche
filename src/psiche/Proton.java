@@ -1,6 +1,7 @@
 package psiche;
 
 public class Proton {
+
     static final double MASS = 1.67262192595E-27;
     static final double CHARGE = 1.602176634E-19;
     private Vector3D position;
@@ -12,13 +13,23 @@ public class Proton {
 
     }
 
-    public Vector3D getPosition(){
+    public Vector3D getPosition() {
         return position;
     }
 
-    public Vector3D getVelocity(){
+    public Vector3D getVelocity() {
         return velocity;
     }
+
+    public void updatePosition(double dt) {
+        position = position.add(velocity.scale(dt));
+
+    }
+
+    public void updateVelocity(Vector3D acceleration, double dt){
+        velocity = velocity.add(acceleration.scale(dt));
+    }
+
 
 
 
